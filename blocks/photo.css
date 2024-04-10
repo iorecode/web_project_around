@@ -1,4 +1,4 @@
-.photos {
+.photo {
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(3, 1fr);
   gap: 20px 16px;

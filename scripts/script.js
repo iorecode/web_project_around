@@ -6,7 +6,7 @@ let formClose = document.querySelector(".form__btn-close");
 let nameInput = document.querySelector("#NameInput");
 let aboutInput = document.querySelector("#AboutInput");
 let userData = document.querySelector(".user__data");
-let photos = document.querySelector(".photos");
+let photos = document.querySelector(".photo");
 let name = document.querySelector(".user__name");
 let about = document.querySelector(".user__role");
 
