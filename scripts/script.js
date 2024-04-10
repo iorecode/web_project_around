@@ -38,7 +38,7 @@ function handleProfileFormSubmit(evt) {
   evt.preventDefault();
   // Fazendo isso, podemos definir nossa própria forma de enviar o formulário.
   // Explicaremos em mais detalhes posteriormente.
-  if (nameInput.value != "" && aboutInput.value != "") {
+  if (nameInput.value != "") {
     name.textContent = nameInput.value;
     about.textContent = aboutInput.value;
 
