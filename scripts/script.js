@@ -27,7 +27,7 @@ function NoPics() {
   if (pictures.length === 0) {
     photos.insertAdjacentHTML(
       "afterbegin",
-      `<p class="photos__empty">NO PICTURES</p>`
+      `<p class="photo__empty">NO PICTURES</p>`
     );
   }
 }

@@ -12,7 +12,7 @@
   max-width: 282px;
 }
 
-.photo__card_title {
+.photo__card-title {
   background-color: white;
   border-radius: 0px 0px 10px 10px;
   margin: 0;
@@ -21,7 +21,7 @@
   position: relative;
 }
 
-.photo__card_image {
+.photo__card-image {
   max-width: 282px;
   height: 282px;
   width: 100%;
@@ -66,7 +66,7 @@
   background-image: url(../images/heartActive.png);
 }
 
-.photos__empty {
+.photo__empty {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
@@ -77,14 +77,14 @@
 }
 
 @media screen and (max-width: 880px) {
-  .photos {
+  .photo {
     grid-template: repeat(3, 1fr) / 282px 282px;
     width: calc(100% - 200px);
   }
 }
 
 @media screen and (max-width: 768px) {
-  .photos {
+  .photo {
     grid-template: repeat(6, 1fr) / 1fr;
     justify-items: center;
   }
