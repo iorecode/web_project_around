@@ -1,0 +1,8 @@
+body {
+  background-color: black;
+}
+
+.page {
+  box-sizing: border-box;
+  margin: 0 auto;
+}

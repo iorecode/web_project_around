@@ -1,0 +1,91 @@
+.photos {
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+  gap: 20px 16px;
+  margin: 0 auto;
+  max-width: 880px;
+  justify-content: center;
+}
+
+.photo__card {
+  border-radius: 10px;
+  max-width: 282px;
+}
+
+.photo__card_title {
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  margin: 0;
+  margin-top: -4px;
+  height: 79px;
+  position: relative;
+}
+
+.photo__card_image {
+  width: 282px;
+  height: 282px;
+  width: 100%;
+  border-radius: 10px 10px 0 0;
+}
+
+.photo__text {
+  margin: 0;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  width: fit-content;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+  margin-top: 25px;
+  margin-left: 21px;
+}
+
+.photo__like {
+  border: 0;
+  background-image: url(../images/Vector.svg);
+  width: 21px;
+  height: 19px;
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  bottom: 30px;
+  right: 18px;
+  background-color: white;
+}
+
+.photo__like:hover {
+  opacity: 0.6;
+}
+
+.photo__like_active {
+  background-image: url(../images/heartActive.png);
+}
+
+.photos__empty {
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  color: white;
+  margin: auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 880px) {
+  .photos {
+    grid-template: repeat(3, 1fr) / 282px 282px;
+    width: calc(100% - 200px);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .photos {
+    grid-template: repeat(6, 1fr) / 1fr;
+    justify-items: center;
+  }
+}

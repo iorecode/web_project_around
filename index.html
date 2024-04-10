@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="An image gallery for the best the US can offer"
+    />
+    <meta name="author" content="Igor Cadore" />
+    <meta name="keywords" content="Image Gallery" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <title>Around The U.S.</title>
+  </head>
+  <body>
+    <div class="page">
+      <div id="MainSiteOpacity">
+        <header class="header">
+          <nav class="nav">
+            <img
+              src="./images/logo.png"
+              alt="Around the U.S."
+              class="nav__logo"
+            />
+          </nav>
+          <div class="user">
+            <div class="user__image"></div>
+            <div class="user__data">
+              <div class="user__data-main">
+                <h1 class="user__name">Jam Skii</h1>
+                <button class="user__edit"></button>
+              </div>
+              <h2 class="user__role">Explorer</h2>
+            </div>
+            <button class="user__add"></button>
+          </div>
+          <div class="photos">
+            <div class="photo__card">
+              <img
+                src="./images/i1.png"
+                alt="Lago di Braies"
+                class="photo__card_image"
+              />
+              <div class="photo__card_title">
+                <p class="photo__text">di Braies Lake</p>
+                <button class="photo__like"></button>
+              </div>
+            </div>
+            <div class="photo__card">
+              <img
+                src="./images/i2.png"
+                alt="Vale de Yosemite"
+                class="photo__card_image"
+              />
+              <div class="photo__card_title">
+                <p class="photo__text">Yosemite Valley</p>
+                <button class="photo__like"></button>
+              </div>
+            </div>
+            <div class="photo__card">
+              <img
+                src="./images/i3.png"
+                alt="Latemar"
+                class="photo__card_image"
+              />
+              <div class="photo__card_title">
+                <p class="photo__text">Latemar</p>
+                <button class="photo__like"></button>
+              </div>
+            </div>
+            <div class="photo__card">
+              <img
+                src="./images/i4.png"
+                alt="Lago Louise"
+                class="photo__card_image"
+              />
+              <div class="photo__card_title">
+                <p class="photo__text">Louise Lake</p>
+                <button class="photo__like"></button>
+              </div>
+            </div>
+            <div class="photo__card">
+              <img
+                src="./images/i5.png"
+                alt="Parque Nacional da Vanoise"
+                class="photo__card_image"
+              />
+              <div class="photo__card_title">
+                <p class="photo__text">National Park of Vanoise</p>
+                <button class="photo__like"></button>
+              </div>
+            </div>
+            <div class="photo__card">
+              <img
+                src="./images/i6.png"
+                alt="Norwegian Forest"
+                class="photo__card_image"
+              />
+              <div class="photo__card_title">
+                <p class="photo__text">PlaceHolder</p>
+                <button class="photo__like"></button>
+              </div>
+            </div>
+          </div>
+        </header>
+        <footer class="footer">
+          <p class="footer__copyright">&#169; 2024. Igor Cadore</p>
+        </footer>
+      </div>
+      <section>
+        <form class="form">
+          <button class="form__close"></button>
+          <h3 class="form__title">Editar perfil</h3>
+          <fieldset class="form__fieldset">
+            <input
+              type="text"
+              placeholder="Name"
+              class="form__input"
+              id="NameInput"
+              value=""
+            />
+            <input
+              type="text"
+              placeholder="About Me"
+              class="form__input"
+              id="AboutInput"
+            />
+            <button type="submit" class="form__button">Save</button>
+          </fieldset>
+        </form>
+      </section>
+    </div>
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>

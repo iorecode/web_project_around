@@ -1,0 +1,30 @@
+.nav {
+  max-width: 880px;
+  margin: auto;
+  width: 100%;
+  max-height: 880px;
+  padding-top: 45px;
+  border-bottom: 1px solid rgba(84, 84, 84, 1);
+}
+
+.nav__logo {
+  max-width: 173px;
+  max-height: 33px;
+  padding-bottom: 40px;
+}
+
+@media screen and (max-width: 880px) {
+  .nav {
+    width: calc(100% - 200px);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .nav {
+    width: 100%;
+  }
+
+  .nav__logo {
+    padding-left: 28px;
+  }
+}
