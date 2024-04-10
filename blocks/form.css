@@ -89,12 +89,11 @@
   opacity: 0.4;
 }
 
-.form__close {
+.form__btn-close {
   width: 26px;
   height: 26px;
   background-image: url(../images/close.png);
   background-color: transparent;
-  position: absolute;
   border: 0;
   background-repeat: no-repeat;
   background-size: cover;
@@ -104,7 +103,7 @@
   cursor: pointer;
 }
 
-.form__close:hover {
+.form__btn-close:hover {
   opacity: 0.6;
 }
 
@@ -117,6 +116,7 @@
 
   .form__button {
     text-align: center;
+    width: 238px;
   }
 
   .form__close {
@@ -126,9 +126,5 @@
 
   .form__title {
     max-width: 238px;
-  }
-
-  .form__button {
-    width: 238px;
   }
 }
