@@ -51,4 +51,3 @@ function handleProfileFormSubmit(evt) {
 formElement.addEventListener("submit", handleProfileFormSubmit);
 formEdit.addEventListener("click", OpenForm);
 formClose.addEventListener("click", CloseForm);
-formSubmit.addEventListener("click", handleProfileFormSubmit);
