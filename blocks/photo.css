@@ -7,9 +7,18 @@
   justify-content: center;
 }
 
+.photo__popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+}
+
 .photo__card {
   border-radius: 10px;
   max-width: 282px;
+  position: relative;
 }
 
 .photo__card-title {
@@ -26,6 +35,42 @@
   height: 282px;
   width: 100%;
   border-radius: 10px 10px 0 0;
+}
+
+.photo__card-image_popup {
+  z-index: 10;
+  display: inline-block;
+  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 0;
+}
+
+.photo__card-image_close {
+  width: 40px;
+  height: 40px;
+  background-image: url(../images/close.png);
+  background-color: transparent;
+  border: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  position: absolute;
+  top: -8%;
+  right: -8%;
+  cursor: pointer;
+}
+
+.photo__card-image_subtitle {
+  font-family: "Inter", Arial, sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  z-index: 10;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 
 .photo__text {
@@ -66,14 +111,34 @@
   background-image: url(../images/heartActive.png);
 }
 
+.photo__delete {
+  border: 0;
+  background-image: url(../images/Trash.svg);
+  width: 21px;
+  height: 19px;
+  top: 16px;
+  right: 12px;
+  padding: 0;
+  display: inline-block;
+  cursor: pointer;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-color: transparent;
+}
+
+.photo__delete:hover {
+  opacity: 0.6;
+}
+
 .photo__empty {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;
-  font-size: 24px;
-  line-height: 29px;
+  font-size: 48px;
+  line-height: 50px;
   color: white;
   margin: auto;
   text-align: center;
+  position: absolute;
 }
 
 @media screen and (max-width: 880px) {

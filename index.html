@@ -35,102 +35,72 @@
             </div>
             <button class="user__add"></button>
           </div>
-          <div class="photo">
-            <div class="photo__card">
-              <img
-                src="./images/i1.png"
-                alt="Lago di Braies"
-                class="photo__card-image"
-              />
-              <div class="photo__card-title">
-                <p class="photo__text">di Braies Lake</p>
-                <button class="photo__like"></button>
-              </div>
-            </div>
-            <div class="photo__card">
-              <img
-                src="./images/i2.png"
-                alt="Vale de Yosemite"
-                class="photo__card-image"
-              />
-              <div class="photo__card-title">
-                <p class="photo__text">Yosemite Valley</p>
-                <button class="photo__like"></button>
-              </div>
-            </div>
-            <div class="photo__card">
-              <img
-                src="./images/i3.png"
-                alt="Latemar"
-                class="photo__card-image"
-              />
-              <div class="photo__card-title">
-                <p class="photo__text">Latemar</p>
-                <button class="photo__like"></button>
-              </div>
-            </div>
-            <div class="photo__card">
-              <img
-                src="./images/i4.png"
-                alt="Lago Louise"
-                class="photo__card-image"
-              />
-              <div class="photo__card-title">
-                <p class="photo__text">Louise Lake</p>
-                <button class="photo__like"></button>
-              </div>
-            </div>
-            <div class="photo__card">
-              <img
-                src="./images/i5.png"
-                alt="Parque Nacional da Vanoise"
-                class="photo__card-image"
-              />
-              <div class="photo__card-title">
-                <p class="photo__text">National Park of Vanoise</p>
-                <button class="photo__like"></button>
-              </div>
-            </div>
-            <div class="photo__card">
-              <img
-                src="./images/i6.png"
-                alt="Norwegian Forest"
-                class="photo__card-image"
-              />
-              <div class="photo__card-title">
-                <p class="photo__text">PlaceHolder</p>
-                <button class="photo__like"></button>
-              </div>
-            </div>
-          </div>
+          <div class="photo"></div>
         </header>
         <footer class="footer">
           <p class="footer__copyright">&#169; 2024. Igor Cadore</p>
         </footer>
       </div>
       <section>
-        <form class="form">
-          <button class="form__btn-close"></button>
+        <form class="form" id="FormProfile">
+          <button type="button" class="form__btn-close"></button>
           <h3 class="form__title">Editar perfil</h3>
           <fieldset class="form__fieldset">
             <input
               type="text"
-              placeholder="Name"
+              placeholder="Nome"
               class="form__input"
               id="NameInput"
               value=""
             />
             <input
               type="text"
-              placeholder="About Me"
+              placeholder="Sobre Mim"
               class="form__input"
               id="AboutInput"
             />
             <button type="submit" class="form__button">Save</button>
           </fieldset>
         </form>
+        <form class="form" id="FormUpload">
+          <button type="button" class="form__btn-close"></button>
+          <h4 class="form__title">Novo local</h4>
+          <fieldset class="form__fieldset">
+            <input
+              type="text"
+              placeholder="Título"
+              class="form__input"
+              id="TitleInput"
+              value=""
+            />
+            <input
+              type="text"
+              placeholder="Link de imagem"
+              class="form__input"
+              id="LinkInput"
+            />
+            <button type="submit" class="form__button">Save</button>
+          </fieldset>
+        </form>
       </section>
     </div>
+    <template id="card-template">
+      <div class="photo__card">
+        <button class="photo__delete"></button>
+        <img src="" class="photo__card-image" />
+        <div class="photo__card-title">
+          <p class="photo__text"></p>
+          <button class="photo__like"></button>
+        </div>
+      </div>
+    </template>
+    <template id="image-template">
+      <div class="photo__popup">
+        <button type="button" class="photo__card-image_close"></button>
+        <img src="" class="photo__card-image photo__card-image_popup" />
+        <p class="photo__card-image_subtitle"></p>
+      </div>
+    </template>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
