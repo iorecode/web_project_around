@@ -22,3 +22,7 @@ This is a social media design for sharing image galleries.
 ## Screenshot of the site
 
 https://imgur.com/a/32xlCP3
+
+## Github pages link
+
+https://iorecode.github.io/web_project_around/

@@ -1,17 +1,17 @@
 const formUpload = document.querySelector("#FormUpload");
 const formProfile = document.querySelector("#FormProfile");
 const buttonAdd = document.querySelector(".user__add");
-let formEdit = document.querySelector(".user__edit");
-let formSubmit = document.querySelector(".form__button");
+const formEdit = document.querySelector(".user__edit");
+const formSubmit = document.querySelector(".form__button");
 const pageOpacity = document.querySelector("#MainSiteOpacity");
-let nameInput = document.querySelector("#NameInput");
-let aboutInput = document.querySelector("#AboutInput");
-let titleInput = document.querySelector("#TitleInput");
-let linkInput = document.querySelector("#LinkInput");
-let userData = document.querySelector(".user__data");
-let photos = document.querySelector(".photo");
-let name = document.querySelector(".user__name");
-let about = document.querySelector(".user__role");
+const nameInput = document.querySelector("#NameInput");
+const aboutInput = document.querySelector("#AboutInput");
+const titleInput = document.querySelector("#TitleInput");
+const linkInput = document.querySelector("#LinkInput");
+const userData = document.querySelector(".user__data");
+const photos = document.querySelector(".photo");
+const name = document.querySelector(".user__name");
+const about = document.querySelector(".user__role");
 let currentImageSrc = "";
 let currentTextContent = "";
 const cardContainer = document.querySelector(".photo");
@@ -44,15 +44,15 @@ const initialCards = [
 
 initialCards.forEach(createCard);
 
-function OpenForm(form) {
+function openForm(form) {
   console.log("Form opened");
   form.classList.add("form_opened");
   pageOpacity.classList.add("form__opacity");
 }
 
-function NoPics() {
-  let pictures = document.querySelectorAll(".photo__card");
-  let emptyMessage = document.querySelector(".photo__empty");
+function handleNoPics() {
+  const pictures = document.querySelectorAll(".photo__card");
+  const emptyMessage = document.querySelector(".photo__empty");
 
   if (pictures.length === 0) {
     photos.insertAdjacentHTML(
@@ -72,6 +72,7 @@ function createCard(card) {
     .querySelector(".photo__card")
     .cloneNode(true);
   cardElement.querySelector(".photo__card-image").src = card.link;
+  cardElement.querySelector(".photo__card-image").alt = card.name;
   cardElement.querySelector(".photo__text").textContent = card.name;
   const likeButton = cardElement.querySelector(".photo__like");
   likeButton.addEventListener("click", function (evt) {
@@ -80,16 +81,15 @@ function createCard(card) {
   const deleteButton = cardElement.querySelector(".photo__delete");
   deleteButton.addEventListener("click", function () {
     cardElement.remove();
-    NoPics();
+    handleNoPics();
   });
-  currentImageSrc = cardElement.querySelector(".photo__card-image").src =
-    card.link;
-  currentTextContent = cardElement.querySelector(".photo__text").textContent =
-    card.name;
-  let currentImage = cardElement.querySelector(".photo__card-image");
+  cardElement.dataset.imageSrc = card.link;
+  cardElement.dataset.textContent = card.name;
+
+  const currentImage = cardElement.querySelector(".photo__card-image");
 
   currentImage.addEventListener("click", function () {
-    OpenImage();
+    openImage(cardElement);
   });
 
   cardContainer.prepend(cardElement);
@@ -105,7 +105,7 @@ function handleProfileFormSubmit(evt, form) {
     name.textContent = nameInput.value;
     about.textContent = aboutInput.value;
 
-    CloseForm(form);
+    closeForm(form);
   }
 }
 
@@ -119,24 +119,28 @@ function handleUploadFormSubmit(evt, form) {
     };
     titleInput.value = "";
     linkInput.value = "";
-    CloseForm(form);
+    closeForm(form);
     createCard(newCard);
-    NoPics();
+    handleNoPics();
   }
 }
 
-function CloseForm(form) {
+function closeForm(form) {
   console.log("Form closed");
   form.classList.remove("form_opened");
   pageOpacity.classList.remove("form__opacity");
 }
 
-function OpenImage() {
+function openImage(clickedCard) {
   const ImageTemplate = document.querySelector("#image-template").content;
   const ImageElement =
     ImageTemplate.querySelector(".photo__popup").cloneNode(true);
   pageOpacity.classList.add("form__opacity");
+  const currentImageSrc = clickedCard.dataset.imageSrc;
+  const currentTextContent = clickedCard.dataset.textContent;
   ImageElement.querySelector(".photo__card-image_popup").src = currentImageSrc;
+  ImageElement.querySelector(".photo__card-image_popup").alt =
+    currentTextContent;
   ImageElement.querySelector(".photo__card-image_subtitle").textContent =
     currentTextContent;
   if (!document.querySelector(".photo__popup")) {
@@ -153,8 +157,8 @@ const closeButtons = document.querySelectorAll(".form__btn-close");
 
 closeButtons.forEach(function (button) {
   button.addEventListener("click", function () {
-    CloseForm(formProfile);
-    CloseForm(formUpload);
+    closeForm(formProfile);
+    closeForm(formUpload);
   });
 });
 
@@ -167,9 +171,9 @@ formUpload.addEventListener("submit", function (evt) {
   handleUploadFormSubmit(evt, formUpload);
 });
 formEdit.addEventListener("click", function () {
-  OpenForm(formProfile);
+  openForm(formProfile);
 });
 
 buttonAdd.addEventListener("click", function () {
-  OpenForm(formUpload);
+  openForm(formUpload);
 });

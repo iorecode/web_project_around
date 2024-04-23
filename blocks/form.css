@@ -111,7 +111,7 @@
   .form {
     width: 288px;
     height: 322px;
-    margin-top: -40px;
+    margin-bottom: 40px;
   }
 
   .form__button {
