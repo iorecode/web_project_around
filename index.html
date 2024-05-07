@@ -42,43 +42,65 @@
         </footer>
       </div>
       <section>
-        <form class="form" id="FormProfile">
+        <form class="form" id="FormProfile" novalidate>
           <button type="button" class="form__btn-close"></button>
           <h3 class="form__title">Editar perfil</h3>
           <fieldset class="form__fieldset">
-            <input
-              type="text"
-              placeholder="Nome"
-              class="form__input"
-              id="NameInput"
-              value=""
-            />
-            <input
-              type="text"
-              placeholder="Sobre Mim"
-              class="form__input"
-              id="AboutInput"
-            />
+            <div class="input__container">
+              <input
+                type="text"
+                placeholder="Nome"
+                class="form__input"
+                id="NameInput"
+                value=""
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span class="form__input-error NameInput-error"></span>
+            </div>
+            <div class="input__container">
+              <input
+                type="text"
+                placeholder="Sobre Mim"
+                class="form__input"
+                id="AboutInput"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span class="form__input-error AboutInput-error"></span>
+            </div>
             <button type="submit" class="form__button">Save</button>
           </fieldset>
         </form>
-        <form class="form" id="FormUpload">
+        <form class="form" id="FormUpload" novalidate>
           <button type="button" class="form__btn-close"></button>
           <h4 class="form__title">Novo local</h4>
           <fieldset class="form__fieldset">
-            <input
-              type="text"
-              placeholder="Titulo"
-              class="form__input"
-              id="TitleInput"
-              value=""
-            />
-            <input
-              type="text"
-              placeholder="Link de imagem"
-              class="form__input"
-              id="LinkInput"
-            />
+            <div class="input__container">
+              <input
+                type="text"
+                placeholder="Titulo"
+                class="form__input"
+                id="TitleInput"
+                value=""
+                required
+                minlength="2"
+                maxlength="30"
+              />
+              <span class="form__input-error TitleInput-error"></span>
+            </div>
+            <div class="input__container">
+              <input
+                type="url"
+                placeholder="Link de imagem"
+                class="form__input"
+                id="LinkInput"
+                required
+              />
+              <span class="form__input-error LinkInput-error"></span>
+            </div>
             <button type="submit" class="form__button">Save</button>
           </fieldset>
         </form>
@@ -102,5 +124,6 @@
       </div>
     </template>
     <script src="./scripts/script.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
