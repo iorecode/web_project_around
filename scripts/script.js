@@ -44,6 +44,8 @@ const initialCards = [
 
 initialCards.forEach(createCard);
 
+let currentImageElement = null;
+
 function openForm(form) {
   console.log("Form opened");
   form.classList.add("form_opened");
@@ -96,11 +98,7 @@ function createCard(card) {
 }
 
 function handleProfileFormSubmit(evt, form) {
-  // Esta linha impede o navegador
-  // de enviar o formulário da forma padrão.
   evt.preventDefault();
-  // Fazendo isso, podemos definir nossa própria forma de enviar o formulário.
-  // Explicaremos em mais detalhes posteriormente.
   if (nameInput.value != "") {
     name.textContent = nameInput.value;
     about.textContent = aboutInput.value;
@@ -143,14 +141,19 @@ function openImage(clickedCard) {
     currentTextContent;
   ImageElement.querySelector(".photo__card-image_subtitle").textContent =
     currentTextContent;
-  if (!document.querySelector(".photo__popup")) {
-    const closeButton = ImageElement.querySelector(".photo__card-image_close");
-    closeButton.addEventListener("click", () => {
-      ImageElement.remove();
-      pageOpacity.classList.remove("form__opacity");
-    });
-    document.body.appendChild(ImageElement);
+
+  if (currentImageElement) {
+    currentImageElement.remove();
   }
+
+  const closeButton = ImageElement.querySelector(".photo__card-image_close");
+  closeButton.addEventListener("click", () => {
+    ImageElement.remove();
+    pageOpacity.classList.remove("form__opacity");
+  });
+
+  document.body.appendChild(ImageElement);
+  currentImageElement = ImageElement;
 }
 
 const closeButtons = document.querySelectorAll(".form__btn-close");
@@ -162,8 +165,6 @@ closeButtons.forEach(function (button) {
   });
 });
 
-// Conecte o handler ao formulário:
-// ele vai observar o evento de submit
 formProfile.addEventListener("submit", function (evt) {
   handleProfileFormSubmit(evt, formProfile);
 });
@@ -176,4 +177,42 @@ formEdit.addEventListener("click", function () {
 
 buttonAdd.addEventListener("click", function () {
   openForm(formUpload);
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") {
+    closeForm(formProfile);
+    closeForm(formUpload);
+    closeImage();
+  }
+});
+
+document.addEventListener("click", (event) => {
+  const isCardClick = event.target.closest(".photo__card");
+
+  if (isCardClick) {
+    console.log("Click em uma carta");
+  } else if (
+    !formProfile.contains(event.target) &&
+    !formUpload.contains(event.target) &&
+    !formEdit.contains(event.target) &&
+    !buttonAdd.contains(event.target)
+  ) {
+    closeForm(formProfile);
+    closeForm(formUpload);
+    closeImage();
+  }
+});
+
+function closeImage() {
+  if (currentImageElement) {
+    currentImageElement.remove();
+    pageOpacity.classList.remove("form__opacity");
+  }
+}
+
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("photo__card-image_close")) {
+    closeImage();
+  }
 });
