@@ -43,10 +43,6 @@
   align-self: center;
 }
 
-.form__opacity {
-  opacity: 0.5;
-}
-
 .form__button {
   position: relative;
   box-sizing: border-box;
