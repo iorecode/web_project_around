@@ -17,7 +17,7 @@ function closeForm(form) {
 }
 
 function closeImage() {
-  const popupImage = document.querySelector(".photo__popup");
+  const popupImage = document.querySelector(".popup");
   popupImage.style.display = "none";
   document.querySelector("#MainSiteOpacity").classList.remove("page__opacity");
 }

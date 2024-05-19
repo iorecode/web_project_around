@@ -30,9 +30,10 @@ export class Card {
     this._title = cards.name;
     this._link = cards.link;
     this._cardSelector = selector;
-    this._popupElement = document.querySelector(".photo__popup");
-    this._popupImage = this._popupElement.querySelector(
-      ".photo__card-image_popup"
+    this._popupElement = document.querySelector(".popup");
+    this._popupImage = this._popupElement.querySelector(".popup__image");
+    this._popupSubtitle = this._popupElement.querySelector(
+      ".popup__image-subtitle"
     );
   }
 
@@ -58,9 +59,7 @@ export class Card {
     cardImage.addEventListener("click", () => {
       this.openImage();
     });
-    const closeButton = this._popupElement.querySelector(
-      ".photo__card-image_close"
-    );
+    const closeButton = this._popupElement.querySelector(".popup__close");
     closeButton.addEventListener("click", () => {
       this.closeImage();
     });
@@ -95,12 +94,14 @@ export class Card {
 
   openImage() {
     this._popupImage.src = this._link;
+    this._popupSubtitle.textContent = this._title;
     this._popupElement.style.display = "block";
     document.querySelector("#MainSiteOpacity").classList.add("page__opacity");
   }
 
   closeImage() {
     this._popupImage.src = "";
+    this._popupSubtitle.textContent = "";
     this._popupElement.style.display = "none";
     document
       .querySelector("#MainSiteOpacity")
