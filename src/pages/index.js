@@ -1,3 +1,4 @@
+import "./index.css";
 import { Validate } from "../components/Validate.js";
 import { Card } from "../components/Card.js";
 import { PopupWithForm, PopupWithImage } from "../components/Popup.js";
