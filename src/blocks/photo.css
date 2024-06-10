@@ -57,7 +57,7 @@
   display: inline-block;
   cursor: pointer;
   position: absolute;
-  bottom: 30px;
+  top: 22px;
   right: 18px;
   background-color: white;
 }
@@ -68,6 +68,20 @@
 
 .photo__like_active {
   background-image: url(../images/heartActive.png);
+}
+
+.photo__like-count {
+  text-align: center;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  padding-top: 3px;
+  margin: 0;
+  display: inline-block;
+  position: absolute;
+  right: 25px;
+  bottom: 20px;
 }
 
 .photo__delete {
