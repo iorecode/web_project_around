@@ -110,6 +110,30 @@
             <button type="submit" class="form__button">Crie</button>
           </fieldset>
         </form>
+        <form class="form" id="SubmitCheck" novalidate>
+          <button type="button" class="form__btn-close"></button>
+          <p class="form__title">Tem certeza?</p>
+          <button type="submit" class="form__button">Sim</button>
+        </form>
+        <form class="form" id="FormProfilePicture" novalidate>
+          <button type="button" class="form__btn-close"></button>
+          <h4 class="form__title">Alterar a foto do perfil</h4>
+          <fieldset class="form__fieldset">
+            <div class="form__input-container">
+              <input
+                type="url"
+                placeholder="URL da imagem"
+                class="form__input"
+                name="profileUrl"
+                id="ProfileLinkInput"
+                value=""
+                required
+              />
+              <span class="form__input-error TitleInput-error"></span>
+            </div>
+            <button type="submit" class="form__button">Salvar</button>
+          </fieldset>
+        </form>
       </section>
     </div>
     <template id="card-template">
