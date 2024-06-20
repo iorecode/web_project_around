@@ -7,13 +7,15 @@ export class Popup {
     this._handleEscClose = this._handleEscClose.bind(this);
   }
   open() {
-    pageOpacity.classList.add("page__opacity");
+    pageOpacity.classList.add("page__opacity-toggled");
+    pageOpacity.style.display = "block";
     document.addEventListener("keydown", this._handleEscClose);
     this._isOpen = true;
   }
 
   close() {
-    pageOpacity.classList.remove("page__opacity");
+    pageOpacity.classList.remove("page__opacity-toggled");
+    pageOpacity.style.display = "none";
     document.removeEventListener("keydown", this._handleEscClose);
     this._isOpen = false;
   }
@@ -25,6 +27,11 @@ export class Popup {
   }
 
   setEventListeners() {
+    document.addEventListener("click", (evt) => {
+      if (pageOpacity.contains(evt.target)) {
+        this.close();
+      }
+    });
     imageClose.addEventListener("click", () => {
       this.close();
     });
@@ -105,5 +112,32 @@ export class PopupWithForm extends Popup {
   open() {
     super.open();
     this._popup.classList.add("form_opened");
+  }
+}
+
+export class PopupWithConfirmation extends Popup {
+  constructor(popupSelector, handleSubmit) {
+    super(popupSelector);
+    this._handleSubmit = handleSubmit;
+  }
+
+  open(target) {
+    super.open();
+    this._target = target;
+    this._popup.classList.add("form_opened");
+  }
+
+  close() {
+    super.close();
+    this._popup.classList.remove("form_opened");
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+    this._popup.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleSubmit(this._target);
+      this.close();
+    });
   }
 }

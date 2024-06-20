@@ -14,35 +14,43 @@
   </head>
   <body>
     <div class="page">
-      <div id="MainSiteOpacity">
-        <header class="header">
-          <nav class="nav">
+      <div class="page__opacity" style="display: none"></div>
+      <header class="header">
+        <nav class="nav">
+          <img
+            src="<%=require('./images/logo.png')%>"
+            alt="Around the U.S."
+            class="nav__logo"
+          />
+        </nav>
+        <div class="user">
+          <div class="user__image">
             <img
-              src="<%=require('./images/logo.png')%>"
-              alt="Around the U.S."
-              class="nav__logo"
+              src="<%= require('./images/toucan.png')%>"
+              alt="user's profile picture"
+              class="user__image-main"
             />
-          </nav>
-          <div class="user">
-            <div class="user__image">
-              <div class="user__image-main"></div>
-              <div class="user__image-edit"></div>
-            </div>
-            <div class="user__data">
-              <div class="user__data-main">
-                <h1 class="user__name">Jam Skii</h1>
-                <button class="user__edit"></button>
-              </div>
-              <h2 class="user__role">Explorer</h2>
-            </div>
-            <button class="user__add"></button>
+            <img
+              src="<%= require('./images/edit.png')%>"
+              alt="user's profile picture edit"
+              class="user__image-edit"
+            />
           </div>
-          <div class="photo"></div>
-        </header>
-        <footer class="footer">
-          <p class="footer__copyright">&#169; 2024. Igor Cadore</p>
-        </footer>
-      </div>
+          <div class="user__data">
+            <div class="user__data-main">
+              <h1 class="user__name">Jam Skii</h1>
+              <button class="user__edit"></button>
+            </div>
+            <h2 class="user__role">Explorer</h2>
+          </div>
+          <button class="user__add"></button>
+        </div>
+        <div class="photo"></div>
+      </header>
+      <footer class="footer">
+        <p class="footer__copyright">&#169; 2024. Igor Cadore</p>
+      </footer>
+
       <section>
         <form class="form" id="FormProfile" novalidate>
           <button type="button" class="form__btn-close"></button>
@@ -75,7 +83,9 @@
               />
               <span class="form__input-error AboutInput-error"></span>
             </div>
-            <button type="submit" class="form__button">Salvar</button>
+            <button type="submit" class="form__button" id="UserUploadButton">
+              Salvar
+            </button>
           </fieldset>
         </form>
         <form class="form" id="FormUpload" novalidate>
@@ -107,7 +117,9 @@
               />
               <span class="form__input-error LinkInput-error"></span>
             </div>
-            <button type="submit" class="form__button">Crie</button>
+            <button type="submit" class="form__button" id="CardUploadButton">
+              Crie
+            </button>
           </fieldset>
         </form>
         <form class="form" id="SubmitCheck" novalidate>
@@ -131,7 +143,9 @@
               />
               <span class="form__input-error TitleInput-error"></span>
             </div>
-            <button type="submit" class="form__button">Salvar</button>
+            <button type="submit" class="form__button" id="PictureUploadButton">
+              Salvar
+            </button>
           </fieldset>
         </form>
       </section>

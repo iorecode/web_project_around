@@ -1,6 +1,8 @@
 export const username = document.querySelector(".user__name");
 export const userabout = document.querySelector(".user__role");
-export const pageOpacity = document.querySelector("#MainSiteOpacity");
+export const userimage = document.querySelector(".user__image");
+export const userimageEdit = document.querySelector(".user__image-edit");
+export const pageOpacity = document.querySelector(".page__opacity");
 export const initialCards = [
   {
     name: "Vale de Yosemite",

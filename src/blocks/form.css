@@ -13,6 +13,7 @@
 
 .form_opened {
   display: flex;
+  z-index: 2;
   border: 0;
   flex-direction: column;
   align-items: center;
