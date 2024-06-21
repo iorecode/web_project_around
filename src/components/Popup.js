@@ -78,7 +78,7 @@ export class PopupWithForm extends Popup {
     super(popupSelector);
     this._handleSubmit = handleSubmit.bind(this);
     this._inputList = this._popup.querySelectorAll(".form__input");
-    this._validator = validator; // Add a reference to the validator
+    this._validator = validator;
   }
 
   _getInputValues() {
@@ -116,7 +116,7 @@ export class PopupWithForm extends Popup {
   open() {
     super.open();
     this._popup.classList.add("form_opened");
-    this._validator.resetValidation(); // Reset validation state when the form is opened
+    this._validator.resetValidation();
   }
 }
 
