@@ -108,10 +108,18 @@ const formUploadValidator = new Validate(
 );
 formUploadValidator.enableValidation();
 
-const popupProfile = new PopupWithForm("#FormProfile", handleProfileFormSubmit);
+const popupProfile = new PopupWithForm(
+  "#FormProfile",
+  handleProfileFormSubmit,
+  formProfileValidator
+);
 popupProfile.setEventListeners();
 
-const popupUpload = new PopupWithForm("#FormUpload", handleUploadFormSubmit);
+const popupUpload = new PopupWithForm(
+  "#FormUpload",
+  handleUploadFormSubmit,
+  formUploadValidator
+);
 popupUpload.setEventListeners();
 
 formEdit.addEventListener("click", () => {
@@ -125,7 +133,7 @@ buttonAdd.addEventListener("click", () => {
 });
 
 const handleAvatarFormSubmit = (inputValues) => {
-  renderLoad(true, "#PictureUploadButton");
+  renderLoad("#PictureUploadButton", "Salvando...");
   const avatarUrl = inputValues.profileUrl;
   api
     .updateProfilePicture({ avatar: avatarUrl })
@@ -136,14 +144,8 @@ const handleAvatarFormSubmit = (inputValues) => {
     .catch((err) => {
       console.error("Failed to update profile picture:", err);
     })
-    .finally(() => renderLoad(false, "#PictureUploadButton"));
+    .finally(() => renderLoad("#PictureUploadButton", "Salvar"));
 };
-
-const popupAvatar = new PopupWithForm(
-  "#FormProfilePicture",
-  handleAvatarFormSubmit
-);
-popupAvatar.setEventListeners();
 
 const formAvatarValidator = new Validate(
   {
@@ -156,6 +158,13 @@ const formAvatarValidator = new Validate(
   document.querySelector("#FormProfilePicture")
 );
 formAvatarValidator.enableValidation();
+
+const popupAvatar = new PopupWithForm(
+  "#FormProfilePicture",
+  handleAvatarFormSubmit,
+  formAvatarValidator
+);
+popupAvatar.setEventListeners();
 
 userimage.addEventListener("click", () => {
   popupAvatar.open();

@@ -5,7 +5,7 @@
   width: 430px;
   height: 330px;
   border-radius: 10px;
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -20,6 +20,10 @@
   flex-wrap: nowrap;
   align-content: center;
   justify-content: center;
+}
+
+.form__confirmation {
+  height: 180px;
 }
 
 .form__fieldset {
@@ -44,6 +48,11 @@
   align-self: center;
 }
 
+.form__title_start {
+  align-self: flex-start;
+  margin-left: 36px;
+}
+
 .form__button {
   position: relative;
   box-sizing: border-box;
@@ -57,6 +66,10 @@
   font-weight: 400;
   line-height: 21px;
   padding: 18px 125px;
+}
+
+.form__button_wide {
+  padding: 18px 160px;
 }
 
 .form__button:hover {

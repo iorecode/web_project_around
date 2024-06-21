@@ -45,4 +45,14 @@ export class Validate {
       spanError.textContent = "";
     }
   }
+
+  resetValidation() {
+    this._inputs.forEach((input) => {
+      input.classList.remove(this._inputErrorClass);
+      const spanError = input.nextElementSibling;
+      spanError.classList.remove(this._errorClass);
+      spanError.textContent = "";
+    });
+    this._toggleButton(this._inputs);
+  }
 }

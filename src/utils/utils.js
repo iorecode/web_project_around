@@ -20,10 +20,8 @@ const UtilAPI = new API({
 });
 
 export function handleProfileFormSubmit(inputValues) {
-  renderLoad(true, "#UserUploadButton");
-  console.log("Submitting profile form with values:", inputValues);
+  renderLoad("#UserUploadButton", "Salvando...");
   if (inputValues.name !== "" && inputValues.about !== "") {
-    console.log(inputValues);
     this.close();
     return UtilAPI.saveProfileChanges(inputValues)
       .then((userData) => {
@@ -34,7 +32,7 @@ export function handleProfileFormSubmit(inputValues) {
       .catch((err) => {
         console.error("Failed to save profile changes:", err);
       })
-      .finally(() => renderLoad(false, "#UserUploadButton"));
+      .finally(() => renderLoad("#UserUploadButton", "Salvar"));
   } else {
     return Promise.reject("Invalid input values");
   }
@@ -53,7 +51,7 @@ const ProfileCards = new Section(
 );
 
 export function handleUploadFormSubmit(inputValues, currentUserId) {
-  renderLoad(true, "#CardUploadButton");
+  renderLoad("#CardUploadButton", "Criando...");
   if (inputValues.url !== "" && inputValues.title !== "") {
     const newCard = {
       name: inputValues.title,
@@ -62,7 +60,6 @@ export function handleUploadFormSubmit(inputValues, currentUserId) {
 
     UtilAPI.addCard(newCard)
       .then((addedCard) => {
-        console.log("New card added:", addedCard);
         addedCard.owner = { _id: currentUserId }; // Define ID do owner pro ID do usuario atual
         const card = new Card(
           addedCard,
@@ -79,7 +76,7 @@ export function handleUploadFormSubmit(inputValues, currentUserId) {
       .catch((err) => {
         console.error("Failed to add new card:", err);
       })
-      .finally(() => renderLoad(false, "#CardUploadButton"));
+      .finally(() => renderLoad("#CardUploadButton", "Criar"));
   } else {
     console.error("Title and URL cannot be empty");
   }
@@ -145,16 +142,11 @@ export function setupProfileEdit() {
   });
 }
 
-export function renderLoad(status, selector) {
+export function renderLoad(selector, text) {
   const element = document.querySelector(selector);
   if (!element) {
     console.error(`Element with selector ${selector} not found`);
     return;
   }
-
-  if (status) {
-    element.textContent += "...";
-  } else {
-    element.textContent = element.textContent.replace("...", "");
-  }
+  element.textContent = text;
 }

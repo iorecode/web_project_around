@@ -74,11 +74,13 @@ export class PopupWithImage extends Popup {
 }
 
 export class PopupWithForm extends Popup {
-  constructor(popupSelector, handleSubmit) {
+  constructor(popupSelector, handleSubmit, validator) {
     super(popupSelector);
     this._handleSubmit = handleSubmit.bind(this);
     this._inputList = this._popup.querySelectorAll(".form__input");
+    this._validator = validator; // Add a reference to the validator
   }
+
   _getInputValues() {
     const inputValues = {};
     this._inputList.forEach((input) => {
@@ -86,6 +88,7 @@ export class PopupWithForm extends Popup {
     });
     return inputValues;
   }
+
   setEventListeners() {
     super.setEventListeners();
     const CloseButtons = document.querySelectorAll(".form__btn-close");
@@ -99,6 +102,7 @@ export class PopupWithForm extends Popup {
       });
     });
   }
+
   close() {
     super.close();
     this._getInputValues();
@@ -112,6 +116,7 @@ export class PopupWithForm extends Popup {
   open() {
     super.open();
     this._popup.classList.add("form_opened");
+    this._validator.resetValidation(); // Reset validation state when the form is opened
   }
 }
 
